@@ -1,13 +1,12 @@
 def tableroVacio():
             return[
-                     [0, 0, 0, 0, 0, 0],
-                     [0, 0, 0, 0, 0, 0],
-                     [0, 0, 0, 0, 0, 0],
-                     [0, 0, 0, 0, 0, 0],
-                     [0, 0, 0, 0, 0, 0],
-                     [0, 0, 0, 0, 0, 0],
-                     ]
-
+                   [0, 0, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 0, 0],
+                   ]
 
 def soltarFichaEnColumna(ficha, tablero, columna):
              for fila in range(6, 0, -1):
@@ -21,6 +20,7 @@ def dibujarTablero(tablero):
                      print(tablero[fila])
                      print("\n")
 
+
 def completarTableroEnOrden(tablero, secuencia):
      y=2
      for x in secuencia:
@@ -30,11 +30,25 @@ def completarTableroEnOrden(tablero, secuencia):
              else:
                      y=2
                      soltarFichaEnColumna(y,tablero,x)
+     return tablero
 
-secuencia = [1,2,3,1]
-tablero=tableroVacio()
-completarTableroEnOrden(tablero,secuencia)
-dibujarTablero(tablero)
+def validaSecuencia(secuencia):
+    for x in secuencia:
+          if x>6 or x<1:
+             return 0
+
+secuencia = [-1,1,2,3,1,31]
+if validaSecuencia(secuencia)==0:
+   print('Secuencia Inválida')
+else:
+   dibujarTablero(completarTableroEnOrden(tableroVacio(),secuencia))
+
+
+secuencia = [1,2,3,1,3]
+if validaSecuencia(secuencia)==0:
+   print('Secuencia Inválida')
+else:
+   dibujarTablero(completarTableroEnOrden(tableroVacio(),secuencia))
 
 
 
