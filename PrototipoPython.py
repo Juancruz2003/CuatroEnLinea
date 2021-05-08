@@ -42,6 +42,17 @@ def validaSecuencia(secuencia):
     return True
 
 
+def contenidoColumna(nro_columna, tablero):
+	columna=[]
+	for fila in tablero:
+		celda=fila[nro_columna-1]
+		columna.append(celda)
+	return columna
+
+def contenidoFila(nro_fila, tablero):
+	return tablero[nro_fila]
+
+
 secuencia = [-1,1,2,3,1,31]
 if validaSecuencia(secuencia):
    dibujarTablero(completarTableroEnOrden(tableroVacio(),secuencia))  
@@ -54,6 +65,15 @@ if validaSecuencia(secuencia):
    dibujarTablero(completarTableroEnOrden(tableroVacio(),secuencia))  
 else:
    print('Secuencia Inválida - Los valores de las columnas deben estar entre valores del 1 al 7')
+
+print(contenidoColumna(2,tablero))
+
+print("\n")
+
+print(contenidoFila(6,tablero))
+
+print("\n")
+
 
 
 
