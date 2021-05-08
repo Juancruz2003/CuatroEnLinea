@@ -52,6 +52,15 @@ def contenidoColumna(nro_columna, tablero):
 def contenidoFila(nro_fila, tablero):
 	return tablero[nro_fila]
 
+def columnas(tablero):
+	columnas=[]
+	for indice in range(1, 8):
+		columnas.append(contenidoColumna(indice,tablero))
+	return columnas
+
+def filas(tablero):
+	return tablero
+
 
 secuencia = [-1,1,2,3,1,31]
 if validaSecuencia(secuencia):
@@ -74,7 +83,10 @@ print(contenidoFila(6,tablero))
 
 print("\n")
 
+print(columnas(tablero))	
 
+print("\n")
 
+print(filas(tablero))
 
 
