@@ -1,12 +1,12 @@
 def tableroVacio():
             return[
-                   [0, 0, 0, 0, 0, 0],
-                   [0, 0, 0, 0, 0, 0],
-                   [0, 0, 0, 0, 0, 0],
-                   [0, 0, 0, 0, 0, 0],
-                   [0, 0, 0, 0, 0, 0],
-                   [0, 0, 0, 0, 0, 0],
-                   [0, 0, 0, 0, 0, 0]                   
+                   [0, 0, 0, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 0, 0, 0],
+                   [0, 0, 0, 0, 0, 0, 0]                   
                    ]
 
 
@@ -18,9 +18,17 @@ def soltarFichaEnColumna(ficha, tablero, columna):
 
 
 def dibujarTablero(tablero):
-             for fila in range(7):
-                     print(tablero[fila])
-                     print("\n")
+	for fila in tablero:
+		print('|', end='')
+		for celda in fila:
+			if celda == 0:
+				print('   ', end='')
+			else:
+				print(' %s ' % celda, end='')
+		print('|')
+	print('+---------------------+')
+	print('')
+	
 
 
 def completarTableroEnOrden(tablero, secuencia):
@@ -41,7 +49,6 @@ def validaSecuencia(secuencia):
              return False
     return True
 
-
 def contenidoColumna(nro_columna, tablero):
 	columna=[]
 	for fila in tablero:
@@ -61,32 +68,40 @@ def columnas(tablero):
 def filas(tablero):
 	return tablero
 
-
+print('Prueba con secuencia [-1,1,2,3,1,31]:')
 secuencia = [-1,1,2,3,1,31]
 if validaSecuencia(secuencia):
    dibujarTablero(completarTableroEnOrden(tableroVacio(),secuencia))  
 else:
    print('Secuencia Inválida - Los valores de las columnas deben estar entre valores del 1 al 7')
+print('')
 
 
-secuencia = [1,2,3,1]
+print('Prueba con secuencia [1,2,3,1,2,3,4,5,6,7]:')
+print('')
+secuencia = [1,2,3,1,2,3,4,5,6,7]
 if validaSecuencia(secuencia):
    dibujarTablero(completarTableroEnOrden(tableroVacio(),secuencia))  
 else:
    print('Secuencia Inválida - Los valores de las columnas deben estar entre valores del 1 al 7')
+print('')
 
+
+tablero=completarTableroEnOrden(tableroVacio(),secuencia)
+
+print('Columna 2:')
 print(contenidoColumna(2,tablero))
+print('')
 
-print("\n")
-
+print('Fila 7:')
 print(contenidoFila(6,tablero))
+print('')
 
-print("\n")
+print('Columnas:')
+print(columnas(tablero))
+print('')	
 
-print(columnas(tablero))	
-
-print("\n")
-
+print('Filas:')
 print(filas(tablero))
 
 
