@@ -57,7 +57,7 @@ def contenidoColumna(nro_columna, tablero):
 	return columna
 
 def contenidoFila(nro_fila, tablero):
-	return tablero[nro_fila]
+	return tablero[nro_fila-1]
 
 def columnas(tablero):
 	columnas=[]
@@ -94,7 +94,7 @@ print(contenidoColumna(2,tablero))
 print('')
 
 print('Fila 7:')
-print(contenidoFila(6,tablero))
+print(contenidoFila(7,tablero))
 print('')
 
 print('Columnas:')
